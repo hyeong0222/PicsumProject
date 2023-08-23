@@ -10,11 +10,11 @@ import javax.inject.Singleton
 @Singleton
 class MainRepository @Inject constructor(private val apiService: ApiService) {
 
-    suspend fun getImageList(page: Int? = null, limit: Int? = null): Flow<List<PicsumImage>> {
+    fun getImageList(page: Int? = null, limit: Int? = null): Flow<List<PicsumImage>> {
         return flow { emit(apiService.getImageList(page = page, limit = limit)) }
     }
 
-    suspend fun getImageDetail(id: String): Flow<PicsumImage> {
+    fun getImageDetail(id: String): Flow<PicsumImage> {
         return flow { emit(apiService.getImageDetail(id = id)) }
     }
 }
